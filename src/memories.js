@@ -11,7 +11,7 @@ function Memory() {
   const fetchGallery = async () => {
     try {
       
-      const res = await fetch("http://localhost:5000/api/gallery", { headers: {
+      const res = await fetch("https://nakama-set-sail.onrender.com/api/gallery", { headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },});
       const data = await res.json();
