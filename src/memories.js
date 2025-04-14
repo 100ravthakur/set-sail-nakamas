@@ -46,9 +46,15 @@ const handleUpload = async (e) => {
     return;
   }
   const formData = new FormData();
-  for(let i = 0; i < select.length;i++)
+  for(let i = 0; i < select.length;i++){
     formData.append("images",select[i]);
+    console.log("File appended:", select[i].name);
+  }
+  
 
+  for (let pair of formData.entries()) {
+    console.log(pair[0]+ ': ' + pair[1]); 
+  }
   try {
     
     const url = "https://nakama-set-sail.onrender.com/api/gallery";
@@ -102,7 +108,7 @@ useEffect(()=>{
           (images.map((img, idx) => (
             <img
             key={idx}
-            src={`https://nakama-set-sail.onrender.com${img}`}
+            src={`${img}`}
             alt={`Gallery ${idx}`}
             className="gallery-img"
               
